@@ -1,0 +1,15 @@
+[Unit]
+Description=Python HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User=web-user
+Group=web-user
+WorkingDirectory=/opt/server-http
+ExecStart=/usr/bin/python3 /opt/server-http/serverhttp.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
